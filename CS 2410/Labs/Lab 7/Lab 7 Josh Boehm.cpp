@@ -46,10 +46,11 @@ const int NUM_OF_ACCOUNTS = 10;
 int main()
 {
     Account bank_accounts[NUM_OF_ACCOUNTS];
-    for (int i = 0; i > NUM_OF_ACCOUNTS; i++)
+    for (int i = 0; i < NUM_OF_ACCOUNTS; i++)
     {
         bank_accounts[i].setId(i);
         bank_accounts[i].setBalance(100);
         bank_accounts[i].setAnnualInterestRate(.025);
+        cout << bank_accounts[i].getId() << endl;
     }
 }
