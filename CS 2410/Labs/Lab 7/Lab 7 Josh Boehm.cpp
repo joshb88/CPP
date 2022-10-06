@@ -51,6 +51,5 @@ int main()
         bank_accounts[i].setId(i);
         bank_accounts[i].setBalance(100);
         bank_accounts[i].setAnnualInterestRate(.025);
-        cout << bank_accounts[i].getId() << endl;
     }
 }
