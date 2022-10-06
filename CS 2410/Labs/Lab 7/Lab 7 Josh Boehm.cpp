@@ -43,13 +43,33 @@ using namespace std;
 
 const int NUM_OF_ACCOUNTS = 10;
 
+void DisplayMainMenu();
+
 int main()
 {
+    // Create the bank accounts, based on global variable set above
     Account bank_accounts[NUM_OF_ACCOUNTS];
     for (int i = 0; i < NUM_OF_ACCOUNTS; i++)
     {
         bank_accounts[i].setId(i);
         bank_accounts[i].setBalance(100);
         bank_accounts[i].setAnnualInterestRate(.025);
+    }
+
+    DisplayMainMenu();
+}
+
+void DisplayMainMenu()
+{
+    int idcheck;
+    cout << "Enter an ID number:\n\n";
+    cin >> idcheck;
+
+    while(cin.fail()) 
+    {
+        cout << "Please enter an appropriate ID Number:" << endl;
+        cin.clear();
+        cin.ignore(256,'\n');
+        cin >> idcheck;
     }
 }
