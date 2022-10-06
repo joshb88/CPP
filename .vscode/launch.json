@@ -10,7 +10,7 @@
             "name": "Debug",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${fileDirname}"
         }
     ]
 }
