@@ -31,3 +31,9 @@ and print the balance, the monthly interest.
 #include "account.h"
 
 using namespace std;
+
+int main()
+{
+    Account account;
+    cout << account.getId();
+}
