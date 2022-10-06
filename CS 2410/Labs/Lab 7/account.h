@@ -15,6 +15,9 @@ class Account
             balance = 0;
             annualInterestRate = 0;
         }
+        Account(int setid, double setbal, double setrate)
+            :id(setid), balance(setbal), annualInterestRate(setrate)
+        {}
         int getId();
         double getBalance()                         const{       return balance;         }
         double getAnnualInteresteRate()             const{  return annualInterestRate;   }
