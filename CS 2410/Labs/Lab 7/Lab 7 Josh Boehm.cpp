@@ -53,6 +53,8 @@ int main()
 {
     // Create the bank accounts, based on global variable set above
     Account bank_accounts[NUM_OF_ACCOUNTS];
+
+    
     for (int i = 0; i < NUM_OF_ACCOUNTS; i++)
     {
         bank_accounts[i].setId(i);
@@ -67,13 +69,14 @@ int idInputVerified()
 {
     int idcheck;
     cout <<
-    "\n+---------------------------------+\n" <<
-      "|    Welcome to the ATM program   |" << 
-    "\n+---------------------------------+\n" << 
+    "\n+---------------------------------+\n"
+      "|    Welcome to the ATM program   |" 
+    "\n+---------------------------------+\n"
       "|    Enter an ID or -1 to exit:   |\n"
-      "+---------------------------------+\n";
+      "+---------------------------------+\n"
+      "  Selection:\t\t\t";
     cin >> idcheck;
-    cout << endl;
+    cout << SECTION_BREAK << endl;
 
     if(idcheck == -1)
     {
@@ -95,7 +98,7 @@ int idInputVerified()
 void mainMenu(Account a[])
 {
     int account_number = idInputVerified();
-    double withdraw_amt, deposit_amt;
+    double withdrawal_amt, deposit_amt;
     int menu_choice;
 
     cout <<
@@ -116,48 +119,72 @@ void mainMenu(Account a[])
     {
     case 1:
         cout <<
+        SECTION_BREAK <<
+        "Current Balance" <<
+        SECTION_BREAK <<
         "Your current balance is: " << a[account_number].getBalance() <<
         "\n\nReturning to main menu...\n\n" << SECTION_BREAK << "\n\n" << endl;
         mainMenu(a);
-    case 2:
-        cout << "Enter withdraw amount:\t\t";
-        cin >> withdraw_amt;
 
-        while(cin.fail() || withdraw_amt > a[account_number].getBalance()) 
+    case 2:
+        cout <<
+        SECTION_BREAK <<
+        "Withdrawal" <<
+        SECTION_BREAK <<
+        "Enter withdraw amount:\t\t";
+        cin >> withdrawal_amt;
+
+        while(cin.fail() || withdrawal_amt > a[account_number].getBalance()) 
         {
             cout << "Please enter an appropriate amount:\n" << endl;
             cin.clear();
             cin.ignore(256,'\n');
-            cin >> withdraw_amt;
+            cin >> withdrawal_amt;
         }
 
-        a[account_number].withdrawl(withdraw_amt);
+        a[account_number].withdrawl(withdrawal_amt);
 
         cout << "Your new balance is:" << setw(15) << right << a[account_number].getBalance() <<
         SECTION_BREAK;
 
         mainMenu(a);
+
     case 3:
-        cout << "Enter withdraw amount:\t\t";
+        cout <<
+        SECTION_BREAK <<
+        "Deposit" <<
+        SECTION_BREAK <<
+        "Enter deposit amount:\t\t";
         cin >> deposit_amt;
 
-        while(cin.fail() || withdraw_amt > a[account_number].getBalance()) 
+        while(cin.fail() || deposit_amt > a[account_number].getBalance()) 
         {
             cout << "Please enter an appropriate amount:\n" << endl;
             cin.clear();
             cin.ignore(256,'\n');
-            cin >> withdraw_amt;
+            cin >> deposit_amt;
         }
 
-        a[account_number].withdrawl(withdraw_amt);
+        a[account_number].withdrawl(deposit_amt);
 
         cout << "Your new balance is:" << setw(15) << right << a[account_number].getBalance() <<
         SECTION_BREAK;
 
         mainMenu(a);
+
+    case 9:
+        cout << "Exiting the menu.\n\n" <<
+        SECTION_BREAK;
+
+        mainMenu(a);
+
     default:
-        // you fucked up
-        break;
+        cout <<
+        "Invalid Entry.\n" <<
+        "Going back to main menu." <<
+        SECTION_BREAK;
+
+        mainMenu(a);
     }
     
 }
