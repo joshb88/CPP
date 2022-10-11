@@ -23,6 +23,27 @@ and an annual interest rate of 4.5%.  Use the withdraw function to withdraw 2500
 and print the balance, the monthly interest.
 */
 
+
+/*
++----------------------------------+
+|             Account              |
++----------------------------------+
+|  - id                            |
+|  - balance                       |
+|  - annualInterestRate            |
++----------------------------------+
+|  + getID()                       |
+|  + getBalance()                  |
+|  + getAnnualInterestRate()       |
+|  + getMonthlyInterestRate()      |
+|                                  |
+|                                  |
+|                                  |
+|                                  |
+|                                  |
++----------------------------------+
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
