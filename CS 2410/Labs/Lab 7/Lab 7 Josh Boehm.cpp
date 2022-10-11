@@ -74,7 +74,7 @@ int idInputVerified()
     "\n+---------------------------------+\n"
       "|    Enter an ID or -1 to exit:   |\n"
       "+---------------------------------+\n"
-      "  Selection:\t\t\t";
+      "  Entry:   \t\t\t";
     cin >> idcheck;
     cout << SECTION_BREAK << endl;
 
@@ -111,7 +111,7 @@ void mainMenu(Account a[])
     "\n\n\n" <<
     "9. Exit\n" <<
     SECTION_BREAK <<
-    "Selection:\t\t\t";
+    "Entry:\t\t\t\t";
     cin >> menu_choice;
     cout << SECTION_BREAK << endl;
 
@@ -136,9 +136,10 @@ void mainMenu(Account a[])
 
         while(cin.fail() || withdrawal_amt > a[account_number].getBalance()) 
         {
-            cout << "Please enter an appropriate amount:\n" << endl;
+            cout << "Please enter an appropriate amount.\n" << endl;
             cin.clear();
             cin.ignore(256,'\n');
+            cout <<"Enter withdraw amount:\t\t";
             cin >> withdrawal_amt;
         }
 
@@ -159,13 +160,14 @@ void mainMenu(Account a[])
 
         while(cin.fail() || deposit_amt > a[account_number].getBalance()) 
         {
-            cout << "Please enter an appropriate amount:\n" << endl;
+            cout << "Please enter an appropriate amount.\n" << endl;
             cin.clear();
             cin.ignore(256,'\n');
+            cout <<"Enter withdraw amount:\t\t";
             cin >> deposit_amt;
         }
 
-        a[account_number].withdrawl(deposit_amt);
+        a[account_number].deposit(deposit_amt);
 
         cout << "Your new balance is:" << setw(15) << right << a[account_number].getBalance() <<
         SECTION_BREAK;
