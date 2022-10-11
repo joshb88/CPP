@@ -83,7 +83,7 @@ int idInputVerified()
         exit(0);
     }
 
-    while(cin.fail() || idcheck < 0 || idcheck > NUM_OF_ACCOUNTS-1) 
+    while(cin.fail() || idcheck < 0 || idcheck > NUM_OF_ACCOUNTS) 
     {
         cout << "Please enter an appropriate ID:" << endl;
         cin.clear();
@@ -188,5 +188,4 @@ void mainMenu(Account a[])
 
         mainMenu(a);
     }
-    
 }
