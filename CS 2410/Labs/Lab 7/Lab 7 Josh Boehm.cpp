@@ -158,7 +158,7 @@ void mainMenu(Account a[])
         "Enter deposit amount:\t\t";
         cin >> deposit_amt;
 
-        while(cin.fail() || deposit_amt > a[account_number].getBalance()) 
+        while(cin.fail()) 
         {
             cout << "Please enter an appropriate amount.\n" << endl;
             cin.clear();
