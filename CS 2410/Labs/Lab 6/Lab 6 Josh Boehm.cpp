@@ -24,7 +24,7 @@ and print the balance, the monthly interest.
 */
 
 
-/*
+/*      UML Diagram
 +----------------------------------+
 |             Account              |
 +----------------------------------+
@@ -36,11 +36,11 @@ and print the balance, the monthly interest.
 |  + getBalance()                  |
 |  + getAnnualInterestRate()       |
 |  + getMonthlyInterestRate()      |
-|                                  |
-|                                  |
-|                                  |
-|                                  |
-|                                  |
+|  + setId(int)                    |
+|  + setBalance(double)            |
+|  + setAnnualInterestRate(double) |
+|  + withdraw(double)              |
+|  + deposit(double)               |
 +----------------------------------+
 */
 
