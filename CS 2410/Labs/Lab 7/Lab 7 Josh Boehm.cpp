@@ -36,9 +36,6 @@ The Balance is 100.00
 #include <iomanip>
 #include <string>
 #include <fstream>
-#include <algorithm>
-#include <iterator>
-#include <stdlib.h>
 #include "account.h"
 
 using namespace std;

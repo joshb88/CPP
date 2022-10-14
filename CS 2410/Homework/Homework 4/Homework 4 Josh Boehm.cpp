@@ -1,10 +1,14 @@
 /*
 Josh Boehm
-16 September 2022
+13 October 2022
 CS 2410
-Program 3
+Program 4
 
-Convert Student Record Program to use class and objectsusing concepts of (OOP) 
+Use two sort algorith for previous program (3) :
+a. Bubble Sort to sort student's name.
+c. Selection Sort to sort Student's letter grade
+ 
+Then use a search methode (linear search, or binary search) to look for specific record in this program.
 */
 
 #include <iostream>
