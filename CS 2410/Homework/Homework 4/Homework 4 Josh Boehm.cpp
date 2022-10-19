@@ -101,11 +101,9 @@ void studentType::assignGrade(studentType studentRecord[])
 int main()
 {
     studentType studentRecord[NUM_STUDENTS];
-    int highestgradeofall = 0;
 
     studentRecord->readStudentdata(studentRecord);
     studentRecord->assignGrade(studentRecord);
-
 
     return 0;
 }
