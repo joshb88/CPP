@@ -124,7 +124,20 @@ void bubbleSortName(studentType s[], int n)
       }
    }
 }
-void selectionSortGrade(studentType s[], int n);
+void selectionSortGrade(studentType s[], int n)
+{
+    int i,j,min_index;
+    for(i=0; i<n; i++)
+    {
+        min_index = i;
+
+        for(j=i+1 ; j<n ; j++)
+            if (s[j].grade < s[min_index].grade)
+                min_index = j;
+        swap(s[i].grade,s[min_index].grade);
+    }
+
+};
 
 int main()
 {
@@ -134,11 +147,19 @@ int main()
     studentRecord->assignGrade(studentRecord);
 
     bubbleSortName(studentRecord,NUM_STUDENTS);
+    selectionSortGrade(studentRecord, NUM_STUDENTS);
 
-    for(int i = 0; i < NUM_STUDENTS; i++)
-    {
-        cout << studentRecord[i].studentFname << " " << studentRecord[i].studentLname << endl;
-    };
+
+    // For testing :)
+    //  for(int i = 0; i < NUM_STUDENTS; i++)
+    // {
+    //     cout << studentRecord[i].grade << endl;
+    // };
+
+    // for(int i = 0; i < NUM_STUDENTS; i++)
+    // {
+    //     cout << studentRecord[i].studentFname << " " << studentRecord[i].studentLname << endl;
+    // };
 
     return 0;
 }
