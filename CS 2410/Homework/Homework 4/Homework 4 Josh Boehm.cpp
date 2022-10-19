@@ -6,9 +6,9 @@ Program 4
 
 Use two sort algorith for previous program (3) :
 a. Bubble Sort to sort student's name.
-c. Selection Sort to sort Student's letter grade
- 
-Then use a search methode (linear search, or binary search) to look for specific record in this program.
+b. Selection Sort to sort Student's letter grade
+
+Then use a search method (linear search, or binary search) to look for specific record in this program.
 */
 
 #include <iostream>
@@ -145,5 +145,7 @@ int main()
     studentRecord->assignGrade(studentRecord);
     studentRecord->highestTestgrade(studentRecord, highestgradeofall);
     studentRecord->displayStudentdata(studentRecord, highestgradeofall);
+
+
     return 0;
 }
