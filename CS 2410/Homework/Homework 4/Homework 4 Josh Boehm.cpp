@@ -138,16 +138,36 @@ void selectionSortGrade(studentType s[], int n)
     }
 
 };
+int binaryNameSearch(studentType array[], string x, int low, int high)
+{   // Repeat until the pointers low and high meet each other
+    while (low <= high) 
+    {
+     int mid = low + (high - low) / 2;
+
+      if (array[mid].studentFname == x)
+         return mid;
+      else if (array[mid].studentFname < x)
+          low = mid + 1;
+      else
+          high = mid - 1;
+    }
+    return -1;
+}
 
 int main()
 {
     studentType studentRecord[NUM_STUDENTS];
+    string searchparameter = "Valerie";
 
     studentRecord->readStudentdata(studentRecord);
     studentRecord->assignGrade(studentRecord);
 
     bubbleSortName(studentRecord,NUM_STUDENTS);
     selectionSortGrade(studentRecord, NUM_STUDENTS);
+
+    int search_results = binaryNameSearch(studentRecord, "Valerie", 0, NUM_STUDENTS);
+
+    cout << "The index of the array where '" << searchparameter << "' is found is " << search_results << "." << endl;
 
 
     // For testing :)
