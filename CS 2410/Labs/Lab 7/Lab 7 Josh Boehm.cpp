@@ -30,6 +30,25 @@ Main Menu
 4. Exit
 Enter a Choice   ENTER
 The Balance is 100.00
+
+
++----------------------------------+
+|             Account              |
++----------------------------------+
+|  - id                            |
+|  - balance                       |
+|  - annualInterestRate            |
++----------------------------------+
+|  + getID()                       |
+|  + getBalance()                  |
+|  + getAnnualInterestRate()       |
+|  + getMonthlyInterestRate()      |
+|  + setId(int)                    |
+|  + setBalance(double)            |
+|  + setAnnualInterestRate(double) |
+|  + withdraw(double)              |
+|  + deposit(double)               |
++----------------------------------+
 */
 
 #include <iostream>
