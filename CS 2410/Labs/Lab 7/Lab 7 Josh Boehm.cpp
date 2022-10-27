@@ -178,7 +178,7 @@ void mainMenu(Account a[])
             cout << "Please enter an appropriate amount.\n" << endl;
             cin.clear();
             cin.ignore(256,'\n');
-            cout <<"Enter withdraw amount:\t\t";
+            cout <<"Enter deposit amount:\t\t";
             cin >> deposit_amt;
         }
 
