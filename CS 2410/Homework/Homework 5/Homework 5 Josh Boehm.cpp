@@ -104,7 +104,8 @@ private:
 
 //ProductionWorker.cpp
 
-ProductionWorker::ProductionWorker(string name, int empNo, string hireDate,int shift, double payRate):Employee(name,empNo,hireDate),
+ProductionWorker::ProductionWorker(string name, int empNo, string hireDate,int shift, double payRate)
+:Employee(name,empNo,hireDate),
 member_HourlyPayRate(payRate)
 {
     if(shift == 1 || shift == 2)
@@ -142,8 +143,6 @@ ProductionWorker::~ProductionWorker()
 }
 
 //Main.cpp
-
-
 int main()
 {
     ProductionWorker p("Mark", 1235, "03/02/2004", 1, 23.50);
