@@ -15,4 +15,5 @@ int main()
 {
     std::cout << maximum('j','g') << std::endl;
     std::cout << maximum(15,6) << std::endl;
+    std::cout << maximum("hello","world") << std::endl;
 }
