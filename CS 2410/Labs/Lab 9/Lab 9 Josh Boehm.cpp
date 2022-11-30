@@ -1,27 +1,38 @@
-
-#include <iostream>  
+#include<iostream>
 using namespace std;
+
 class Add
-{
-    private:   int x = 5, y = 20;
-    public:    void display()  //overridden function
-    {
-        cout << "Value of x is : " << x + y << endl;
+{public:    virtual void print()
+            {   int a = 20, b = 30;
+               cout << " base class Action is:" << a + b << endl;
+            }
+            void show()
+            {       cout << "show base class" << endl; }
+};
+//===========================================================
+class Sub : public Add
+{public:    void print() // print () is already virtual function 
+                         // in derived class, we could also declared 
+                         // as virtual void print () explicitly 
+    {   int x = 20, y = 10;
+        cout << " derived class Action:" << x - y << endl;
     }
+    void show()
+    {    cout << "show derived class" << endl;    }
 };
-//===================================================================
-class Subtract : public Add
-{
-  private: int y = 10, z = 30;
-  public:  void display()  //overridden function
-           {    cout << "Value of y is : " << y - z << endl; }
-};
-//===================================================================
+
+//======================== main function ======================
 int main()
 {
-    Add* m;           //base class pointer .it can only access the base class members
-    Subtract s;     // making object of derived class
-    m = &s;
-    m->display();      // Accessing the function by using base class  pointer
+    Add* aptr;
+    Sub s;
+    aptr = &s;
+    //==================== Virtual function, binded at runtime (Runtime polymorphism) 
+    aptr->print();
+
+    //==================== Non-virtual function, binded at compile time 
+    aptr->show();
+    
+
     return 0;
 }
