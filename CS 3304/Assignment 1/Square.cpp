@@ -12,7 +12,7 @@ Square::Square(double SL, int x, int y)
         std::cout << "Cannot have a side length less than or equal to zero; setting to 10." << std::endl;
         side_length = 10;
     }
-    bottom_left = {x, y};
+    Point bottom_left = {x, y};
 }
         
 void Square::setSideLength(double sidelength)         
@@ -38,7 +38,7 @@ bool Square::contains(Point given_point)
 }
 bool Square::intersects(Square s)
 {
-    if (bottom_left.x + side_length < s.bottom_left.x ||
+    if (Square::bottom_left.x + side_length < s.bottom_left.x ||
         s.bottom_left.x + side_length < bottom_left.x ||
         bottom_left.y + side_length < s.bottom_left.y ||
         s.bottom_left.y + side_length < bottom_left.y)
