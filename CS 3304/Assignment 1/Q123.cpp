@@ -11,7 +11,7 @@ int* arrange(int array[], int size);
 
 /* Question 3 */
 struct Point { int x = 0, y = 0; };
-float distance(Point a, Point b) { return sqrt( pow((a.x - b.x),2) + pow((a.y - b.y),2) ); }
+float distance(Point a, Point b);
 
 /* Driver Code */
 int main()
@@ -110,3 +110,6 @@ int* arrange(int array[], int num_of_elements)
     }
     return arranged_array;
 }
+
+/* Question 3 */
+float distance(Point a, Point b) { return sqrt( pow((a.x - b.x),2) + pow((a.y - b.y),2) ); }
