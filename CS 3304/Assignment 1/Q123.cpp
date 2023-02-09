@@ -28,13 +28,13 @@ int main()
     std::cout << std::endl;
 
     // Part 2
-    // int question2part2[] = { 19,6,22,11,4,9,15 };
-    // int *d = arrange(question2part2, 7);
-    // for (int j = 0; j < 7; j++) 
-    // {
-    //     std::cout << *(d+j) << " ";
-    // }
-    // std::cout << std::endl;
+    int question2part2[] = { 19,6,22,11,4,9,15 };
+    int *d = arrange(question2part2, 7);
+    for (int j = 0; j < 7; j++) 
+    {
+        std::cout << *(d+j) << " ";
+    }
+    std::cout << std::endl;
 }
 
 /* Question 1 */
@@ -82,17 +82,16 @@ int* arrange(int array[], int num_of_elements)
 
     for (int i = 0; i < num_of_elements; i++)
     {
-        if (array[i] % 2 == 1) // Check if odd
-        {
-            if (odd_index == 0) {arranged_array[odd_index++] = array[i];}
-            temp = arranged_array[odd_index-1];
-            arranged_array[odd_index] = temp;
-            arranged_array[odd_index-1] = array[i];
-        
-        }
-        else if(array[i] % 2 == 0) // Check if even
+        if(array[i] % 2 == 0) // Check if even
         {
             arranged_array[--even_index] = array[i]; // Put at the end of the array and decrement
+        }
+    }
+    for (int i = 0; i < num_of_elements; i++)
+    {
+        if (array[i] % 2 == 1) // Check if odd
+        {
+            arranged_array[--even_index] = array[i]; // Put at the end of the array and decrement      
         }
     }
     return arranged_array;
