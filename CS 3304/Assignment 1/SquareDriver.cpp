@@ -34,13 +34,13 @@ int main()
     cout << "Square b does not contain p1" << endl;
     }
     if (a.intersects(b)) {
-    cout << " Square a intersects with Square b" << endl;
+    cout << "Square a intersects with Square b" << endl; 
     }
     if (!b.intersects(c)) {
-    cout << " Square b does not intersect with Square c" << endl;
+    cout << "Square b does not intersect with Square c" << endl;
     }
     if (d.intersects(a)) {
-    cout << " Square d intersects with Square a" << endl;
+    cout << "Square d intersects with Square a" << endl;
     }
 
 };

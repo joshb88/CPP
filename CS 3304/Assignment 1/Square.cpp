@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include "Square.h"
 
-Square::Square() : side_length(5), bottom_left(0,0){}
+Square::Square() : side_length(5), bottom_left{0,0}{}
 Square::Square(double SL, int x, int y)
 {
     if (SL > 0)
@@ -12,17 +12,17 @@ Square::Square(double SL, int x, int y)
         std::cout << "Cannot have a side length less than or equal to zero; setting to 10." << std::endl;
         side_length = 10;
     }
-    Point bottom_left = {x, y};
+    bottom_left = {x, y};
 }
         
 void Square::setSideLength(double sidelength)         
 {
-    if (sidelength > 0) 
+    if (sidelength >= 0) 
         side_length = sidelength;
     else 
     {
-        std::cout << "Invalid length; Must be greater than 0.\n";
-        exit(EXIT_FAILURE);
+        std::cout << "Side length cannot be negative.\n";
+        //exit(EXIT_FAILURE);  // This would exit the program, but the assignment dictates that it continues despite failing
     }
 }
 void Square::setBottomLeftX(int X)                  { bottom_left.x = X; }

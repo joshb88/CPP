@@ -2,7 +2,7 @@
 #define SQUARE
 
 
-struct Point { int x, y; Point(); Point(int setx,int sety) : x(setx), y(sety){} };
+struct Point { int x, y;};
 
 class Square
 {
