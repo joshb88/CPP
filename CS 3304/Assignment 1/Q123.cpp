@@ -12,15 +12,29 @@ int* arrange(int array[], int size);
 
 int main()
 {
-    int a[] = {3,7,9,15,4,6};
-    countBetween(a, 6, 7, 4);
-    int *b = arrange(a, 6);
+    /* Question 1 */
+    int question1[] = {3,7,9,15,4,6};
+    //countBetween(question1, 6, 7, 4);
+
+
+    /* Question 2*/
+    // Part 1
+    int question2part1[] = { 3,7,13,12,6,4 };
+    int *b = arrange(question2part1, 6);
     for (int i = 0; i < 6; i++) 
     {
         std::cout << *(b+i) << " ";
-        std::cout << std::endl;
     }
+    std::cout << std::endl;
 
+    // Part 2
+    // int question2part2[] = { 19,6,22,11,4,9,15 };
+    // int *d = arrange(question2part2, 7);
+    // for (int j = 0; j < 7; j++) 
+    // {
+    //     std::cout << *(d+j) << " ";
+    // }
+    // std::cout << std::endl;
 }
 
 /* Question 1 */
@@ -58,20 +72,28 @@ void countBetween(int array[], int num_of_elements, int value_a, int value_b)
 }
 
 /* Question 2 */
-
 int* arrange(int array[], int num_of_elements) 
 {
+    int temp = 0;
+    int count = 0;
     int odd_index = 0;
     int even_index = num_of_elements;
     int *arranged_array = new int[num_of_elements];
 
     for (int i = 0; i < num_of_elements; i++)
     {
-        if (array[i] % 2 == 1) // odd
+        if (array[i] % 2 == 1) // Check if odd
         {
-            if (array[i] < arranged_array[odd_index]) {arranged_array[odd_index++] = array[i];}
+            if (odd_index == 0) {arranged_array[odd_index++] = array[i];}
+            temp = arranged_array[odd_index-1];
+            arranged_array[odd_index] = temp;
+            arranged_array[odd_index-1] = array[i];
+        
+        }
+        else if(array[i] % 2 == 0) // Check if even
+        {
+            arranged_array[--even_index] = array[i]; // Put at the end of the array and decrement
         }
     }
-
     return arranged_array;
 }
