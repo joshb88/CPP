@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Square.h"
-
+#include <string>
 using namespace std;
 
 int main()
@@ -18,7 +18,7 @@ int main()
     d.display();
     cout << a.getSideLength() << endl;
     cout << b.getBottomLeftX() << endl;
-    cout << c.getBottomLeftY() << endl;
+    cout << c.getBottomLeftY() << endl;s
     c.setSideLength(-7);
     d.setSideLength(10);
     d.setBottomLeftX(-10);
