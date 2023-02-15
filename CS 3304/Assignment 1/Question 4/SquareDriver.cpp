@@ -18,7 +18,7 @@ int main()
     d.display();
     cout << a.getSideLength() << endl;
     cout << b.getBottomLeftX() << endl;
-    cout << c.getBottomLeftY() << endl;s
+    cout << c.getBottomLeftY() << endl;
     c.setSideLength(-7);
     d.setSideLength(10);
     d.setBottomLeftX(-10);
