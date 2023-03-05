@@ -117,7 +117,7 @@ template<class T> T MyList<T>::at(int index)
 
 template<class T> void removeMin()
 {
-    //this is a test
+    if 
 }
 
 //function to display element of the container
