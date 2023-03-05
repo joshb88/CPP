@@ -12,30 +12,46 @@ named “input.txt” and remove all characters except lower case letters in eac
 them into “output.txt” using onlyLowerCase function. 
 */
 
+std::string onlyLowerCase(std::string entry)
+{
+    for (int i = 0; i < entry.size(); i++)
+    {
+        if (!islower(entry[i])) {entry.erase(i,1); i--;}
+    }
+    return entry;
+}
+
 int main()
 {
-    enum text_input { user_input = 1, file = 2 };
-    //std::string in_text;
+    std::ifstream in_file("input.txt");
+    std::ofstream out_file("output.txt");
+    std::string text_from_file, line;
 
-    int user_choice ;
-    std::cin >> user_choice;
-    std::cout 
+    // Prompt
+    std::cout
     << "This program will take a text input and remove all but the lower cased letters, including spaces." << std::endl 
-    << "Please, specify how you would like to input your text:" << std::endl << std::endl
-    << "Enter 1 if you'd like to type yourself." << std::endl
-    << "Enter 2 if you'd like to read from a file named 'input.txt'" << std::endl << std::endl;
+    << "Please, ensure that the text file is named 'input.txt'." << std::endl << std::endl;
 
+    // If both files are available...
+    if(in_file && out_file)
+    {
+        // Copy line by line
+        while(getline(in_file,line))
+        {
+            out_file << onlyLowerCase(line) << '\n';    // while only taking the lower case letters
+        }
 
-    // switch (user_choice)
-    // {
-    // case user_input:
-    //     in_text = "";
-    //     break;
-    // case file:
-    //     std::ifstream in_file;
-    //     inFile
-    // default:
-    //     std::cout << "Tha"
-    //     break;
-    // }
+        // Give completion message
+        std::cout << "Copy Finished \n";
+
+        // Close the Original and Copy files
+        in_file.close();
+        out_file.close();
+    }
+
+    else // If something went wrong
+    {
+        // Give error message
+        printf("Cannot read File");
+    }
 }
