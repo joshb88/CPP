@@ -152,12 +152,16 @@ template<class T> T MyList<T>::at(int index)
 template<class T> int MyList<T>::lastIndexOf(T element)
 {
     for (int i = my_size; i >= 0; --i)
+    {
+        if (element == my_array[i])
         {
-            if (element == my_array[i])
-            {
-                return i;
-            }
+            return i;
         }
+        if (i == 0 & element != my_array[0]) 
+        { return -1; }
+
+    }
+
 }
 
 template<class T> void MyList<T>::clear()
