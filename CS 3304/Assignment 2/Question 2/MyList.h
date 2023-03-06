@@ -20,7 +20,6 @@ public:
     void display();
     T at(int index);
     int lastIndexOf(T element);
-    bool search(T element);
     void clear();
 };
 
@@ -152,10 +151,18 @@ template<class T> T MyList<T>::at(int index)
 
 template<class T> int MyList<T>::lastIndexOf(T element)
 {
-    for (int i = 0; i < my_size; i++)
-    {
-        
-    }
+    for (int i = my_size; i >= 0; --i)
+        {
+            if (element == my_array[i])
+            {
+                return i;
+            }
+        }
+}
+
+template<class T> void MyList<T>::clear()
+{
+    my_size = 0;
 }
 
 #endif // MYLIST
