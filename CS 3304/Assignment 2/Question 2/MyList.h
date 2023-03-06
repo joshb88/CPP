@@ -16,10 +16,10 @@ public:
     int getCapacity() const;
     void add(T element);
     T getMin();
-    T at(int index);
-    void removeMin();
+    T removeMin();
     void display();
-    T sum();
+    T at(int index);
+    int lastIndexOf(T element);
     bool search(T element);
     void clear();
 };
@@ -96,6 +96,41 @@ template<class T> T MyList<T>::getMin()
     } 
 }
 
+template<class T> T MyList<T>::removeMin()
+{
+    T current_min = my_array[0];
+    T new_min = my_array[1];
+    int new_min_index;
+
+    for (int i = 1; i < my_size; i++)
+    {
+        if (new_min >= my_array[i])
+        {
+            new_min = my_array[i];
+            new_min_index = i;
+        }
+    }
+    my_array[0] = new_min;
+    for (int i = new_min_index; i < my_size; i++)
+    {
+        my_array[i] = my_array[i + 1];
+    }
+    my_size--;
+    return current_min;
+}
+
+
+template<class T> void MyList<T>::display()
+{
+    std::cout << "[";
+    for(int i=0; i < my_size; i++)
+    {
+        std::cout << my_array[i];
+        if (i != my_size-1) {std::cout << ", "; }
+    }
+    std::cout << "]" << std::endl;
+}
+
 template<class T> T MyList<T>::at(int index)
 {
     try
@@ -115,21 +150,12 @@ template<class T> T MyList<T>::at(int index)
     
 }
 
-template<class T> void removeMin()
+template<class T> int MyList<T>::lastIndexOf(T element)
 {
-    if 
-}
-
-//function to display element of the container
-template<class T> void MyList<T>::display()
-{
-    std::cout << "[";
-    for(int i=0; i < my_size; i++)
+    for (int i = 0; i < my_size; i++)
     {
-        std::cout << my_array[i];
-        if (i != my_size-1) {std::cout << ", "; }
+        
     }
-    std::cout << "]" << std::endl;
 }
 
 #endif // MYLIST
