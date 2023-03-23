@@ -1,22 +1,16 @@
-/*
-In this assignment, you will implement a deterministic finite automaton (DFA) 
-using C++ programming language to test if an input DNA sequence matches a 
-regular expression. 
-1.	The alphabet for generating DNA sequences is {A, T, G, C}. Design a 
-deterministic finite automaton to recognize the regular expression 
-(AA+TT)(AA+TT)*. 
-2.	Write a program which asks the user to input a DNA sequence. 
-The program should be able test if the input matches the regular expression 
-given in (1). You MUST implement DFA from (1) to check if the DNA sequence is a 
-part of the regular expression or not. 
-*/
-
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <algorithm>
 
-bool DNA_DFA(std::string s);
+// The regex for the language is (AA+TT)(AA+TT)*
+int dfa = 0;
+void state_s(char c);
+void state_1(std::string c);
+void state_2(std::string c);
+void state_3(std::string c);
+void state_9(std::string c);
+bool dna_dfa(std::string s);
 
 int main()
 {
@@ -26,22 +20,124 @@ int main()
     std::transform(sequence.begin(), sequence.end(), sequence.begin(), ::toupper);
     std::cout << "The resultant sequence entered was: " << sequence << std::endl;
 
-    if (DNA_DFA(sequence) == true) {std::cout << "Valid Sequence." << std::endl;}
-    else {std::cout << "Invalid Sequence." << std::endl;}
+    if (dna_dfa(sequence)) { std::cout << "VALID SEQUENCE."; }
+    else { std::cout << "INVALID SEQUENCE."; }
+
 }
 
-bool DNA_DFA(std::string s)
+void state_s(char c)
 {
-    // Reject sequences with neither A nor T.
-    if ((s.find('A') == std::string::npos) && (s.find('T') == std::string::npos))
-    { return false; }
-    
-    else 
-    { 
-        for (std::string::iterator i = s.begin(); i != s.end(); ++++i)
-        {
-            if (*i != *(i+1)) {return false;}
-        }
-        return true; 
+    switch (c)
+    {
+    case 'A':
+        dfa = 1;
+        break;
+    case 'T':
+        dfa = 2;
+        break;
+    case 'G':
+        dfa = 9;
+        break;
+    case 'C':
+        dfa = 9;
+        break;
+    default:
+        dfa = -1;
+        break;
     }
+}
+void state_1(char c)
+{
+    switch (c)
+    {
+    case 'A':
+        dfa = 3;
+        break;
+    case 'T':
+        dfa = 9;
+        break;
+    case 'G':
+        dfa = 9;
+        break;
+    case 'C':
+        dfa = 9;
+        break;
+    default:
+        dfa = -1;
+        break;
+    }
+}
+void state_2(char c)
+{
+    switch (c)
+    {
+    case 'A':
+        dfa = 9;
+        break;
+    case 'T':
+        dfa = 3;
+        break;
+    case 'G':
+        dfa = 9;
+        break;
+    case 'C':
+        dfa = 9;
+        break;
+    default:
+        dfa = -1;
+        break;
+    }
+}
+void state_3(char c)
+{
+        switch (c)
+    {
+    case 'A':
+        dfa = 1;
+        break;
+    case 'T':
+        dfa = 2;
+        break;
+    case 'G':
+        dfa = 9;
+        break;
+    case 'C':
+        dfa = 9;
+        break;
+    default:
+        dfa = -1;
+        break;
+    }
+}
+void state_9(char c)
+{
+    dfa = -1;
+}
+bool dna_dfa(std::string s)
+{
+    for (std::string::iterator i = s.begin(); i != s.end(); ++i)
+    {
+        switch (dfa)
+        {
+        case 0:
+            state_s(*i);
+            break;
+        case 1:
+            state_1(*i);
+            break;
+        case 2:
+            state_2(*i);
+            break;
+        case 3:
+            state_3(*i);
+            break;
+        case 9:
+            state_9(*i);
+            break;
+        default:
+            return false;
+        }
+    }
+    if (dfa == 3) { return true; }
+    else { return false; }
 }
