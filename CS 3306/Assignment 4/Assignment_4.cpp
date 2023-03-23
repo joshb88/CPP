@@ -14,15 +14,24 @@ bool dna_dfa(std::string s);
 
 int main()
 {
-    std::string sequence;
-    std::cout << "Enter a DNA sequence to check:" << std::endl;
-    std::getline(std::cin, sequence);
-    std::transform(sequence.begin(), sequence.end(), sequence.begin(), ::toupper);
-    std::cout << "The resultant sequence entered was: " << sequence << std::endl;
+    // std::string sequence;
+    // std::cout << "Enter a DNA sequence to check:" << std::endl;
+    // std::getline(std::cin, sequence);
+    // std::transform(sequence.begin(), sequence.end(), sequence.begin(), ::toupper);
+    // std::cout << "The resultant sequence entered was: " << sequence << std::endl;
 
-    if (dna_dfa(sequence)) { std::cout << "VALID SEQUENCE."; }
-    else { std::cout << "INVALID SEQUENCE."; }
+    // if (dna_dfa(sequence)) { std::cout << "VALID SEQUENCE."; }
+    // else { std::cout << "INVALID SEQUENCE."; }
 
+    std::string strings[] = {"AATT", "AATACGTTAAAA", "AAGAACAA", "AATTTTAAAA"};
+
+    for (int i = 0; i < 4; ++i)
+    {
+        std::cout << strings[i] << " : ";
+        if (dna_dfa(strings[i])) { std::cout << "VALID SEQUENCE." << std::endl; }
+        else { std::cout << "INVALID SEQUENCE." << std::endl; }
+        dfa=0;
+    }
 }
 
 void state_s(char c)
