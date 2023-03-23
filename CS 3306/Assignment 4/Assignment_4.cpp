@@ -24,6 +24,7 @@ int main()
     std::cout << "Enter a DNA sequence to check:" << std::endl;
     std::getline(std::cin, sequence);
     std::transform(sequence.begin(), sequence.end(), sequence.begin(), ::toupper);
+    std::cout << "The resultant sequence entered was: " << sequence << std::endl;
 
     if (DNA_DFA(sequence) == true) {std::cout << "Valid Sequence." << std::endl;}
     else {std::cout << "Invalid Sequence." << std::endl;}
@@ -33,10 +34,7 @@ bool DNA_DFA(std::string s)
 {
     // Reject sequences with neither A nor T.
     if ((s.find('A') == std::string::npos) && (s.find('T') == std::string::npos))
-    {
-        std::cout << "did not find A nor t" <<std::endl;
-        return false;
-    }
+    { return false; }
     
     else 
     { 
@@ -46,10 +44,4 @@ bool DNA_DFA(std::string s)
         }
         return true; 
     }
-    // for (int i; i < s.length(); i++)
-    // {   
-    //     if (s[0] == s[1] && (s.))
-    //     { return true; }
-    //     else {return false;}
-    // }
 }
