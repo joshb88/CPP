@@ -12,14 +12,14 @@ public:
 
   //--- Definition of Stack constructor
   Stack() {
-    myTop = NULL;
+    myTop = nullptr;
   }
 
 
 //--- Definition of empty()
   bool empty() const
   {
-    return (myTop == NULL);
+    return (myTop == nullptr);
   }
 
 //--- Definition of push()
@@ -37,8 +37,8 @@ public:
       return (myTop->data);
     else
     {
-      cerr << "*** Stack is empty "
-           " -- returning garbage ***\n";
+    //   cerr << "*** Stack is empty "
+    //        " -- returning garbage ***\n";
       return *(new StackElement);   // "Garbage" value
     }
   }
@@ -71,7 +71,7 @@ private:
     StackElement data;
     Node * next;
     //--- Node constructor
-    Node(StackElement value, Node * link = NULL)
+    Node(StackElement value, Node * link = nullptr)
     /*------------------------------------------------------
       Precondition:  value is received
       Postcondition: A Node has been constructed with value
